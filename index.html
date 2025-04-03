@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="icon"
+        href="https://res.cloudinary.com/dsjcty43b/image/upload/v1743666792/Zorvix_logo_oiukws.png">
 </head>
 
 <body>
@@ -540,7 +542,8 @@
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
-                            <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743675185/professional-3_ingftz.jpg" alt="Michael Chen">
+                            <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743675185/professional-3_ingftz.jpg"
+                                alt="Michael Chen">
                         </div>
                         <div class="author-info">
                             <h4>Michael Chen</h4>
@@ -566,7 +569,8 @@
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
-                            <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743675185/profesional-2_bcoexr.jpg" alt="Emily Rodriguez">
+                            <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743675185/profesional-2_bcoexr.jpg"
+                                alt="Emily Rodriguez">
                         </div>
                         <div class="author-info">
                             <h4>Emily Rodriguez</h4>
@@ -743,7 +747,7 @@
     <!-- JavaScript -->
     <script>
         // Preloader
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const preloader = document.querySelector('.preloader');
             setTimeout(() => {
                 preloader.classList.add('fade-out');
@@ -756,8 +760,8 @@
         // Mobile Menu Toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
-        
-        menuToggle.addEventListener('click', function() {
+
+        menuToggle.addEventListener('click', function () {
             this.classList.toggle('active');
             nav.classList.toggle('active');
         });
@@ -766,7 +770,7 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     window.scrollTo({
@@ -774,7 +778,7 @@
                         behavior: 'smooth'
                     });
                 }
-                
+
                 // Close mobile menu if open
                 if (nav.classList.contains('active')) {
                     menuToggle.classList.remove('active');
@@ -785,34 +789,34 @@
 
         // Reveal animations on scroll
         const revealElements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up');
-        
+
         function reveal() {
             revealElements.forEach(element => {
                 const windowHeight = window.innerHeight;
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150;
-                
+
                 if (elementTop < windowHeight - elementVisible) {
                     element.classList.add('active');
                 }
             });
         }
-        
+
         window.addEventListener('scroll', reveal);
         reveal(); // Initial check
 
         // Services Tabs
         const tabItems = document.querySelectorAll('.tab-item');
         const tabContents = document.querySelectorAll('.tab-content');
-        
+
         tabItems.forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 const tabId = this.getAttribute('data-tab');
-                
+
                 // Remove active class from all tabs and contents
                 tabItems.forEach(tab => tab.classList.remove('active'));
                 tabContents.forEach(content => content.classList.remove('active'));
-                
+
                 // Add active class to current tab and content
                 this.classList.add('active');
                 document.getElementById(tabId + '-content').classList.add('active');
@@ -822,17 +826,17 @@
         // Property Filtering
         const filterButtons = document.querySelectorAll('.filter-btn');
         const propertyCards = document.querySelectorAll('.property-card');
-        
+
         filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const filter = this.getAttribute('data-filter');
-                
+
                 // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-                
+
                 // Add active class to current button
                 this.classList.add('active');
-                
+
                 // Filter properties
                 propertyCards.forEach(card => {
                     if (filter === 'all' || card.getAttribute('data-category') === filter) {
@@ -848,19 +852,19 @@
         const dots = document.querySelectorAll('.dot');
         const testimonialSlider = document.querySelector('.testimonials-slider');
         let currentSlide = 0;
-        
+
         function showSlide(index) {
             // Remove active class from all dots
             dots.forEach(dot => dot.classList.remove('active'));
-            
+
             // Add active class to current dot
             dots[index].classList.add('active');
-            
+
             // Move slider
             testimonialSlider.style.transform = `translateX(-${index * 100}%)`;
             currentSlide = index;
         }
-        
+
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => showSlide(index));
         });
@@ -873,7 +877,7 @@
 
         // Back to Top Button
         const backToTopButton = document.querySelector('.back-to-top');
-        
+
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 backToTopButton.classList.add('show');
@@ -881,8 +885,8 @@
                 backToTopButton.classList.remove('show');
             }
         });
-        
-        backToTopButton.addEventListener('click', function(e) {
+
+        backToTopButton.addEventListener('click', function (e) {
             e.preventDefault();
             window.scrollTo({
                 top: 0,
