@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZORVIX - Software Institute & Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="logo-container">
+            <span class="logo-text">ZORVIX</span>
+            <div class="logo-line"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743666792/Zorvix_logo_oiukws.png"
+                    alt="ZORVIX Logo" class="logo-image" />
+                <h1>ZORVIX</h1>
+            </div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#properties">Properties</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="animate-text">Welcome to <span>ZORVIX</span></h1>
+                <h2 class="animate-text delay-1">Empowering Through Education & Real Estate</h2>
+                <p class="animate-text delay-2">Innovative solutions in tech education and property investment</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn primary-btn animate-text delay-3">Our Services</a>
+                    <a href="#contact" class="btn secondary-btn animate-text delay-3">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div>
+                <span class="scroll-arrows">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About <span>ZORVIX</span></h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image reveal-left">
+                    <div class="image-container">
+                        <div class="image-bg"></div>
+                        <div class="floating-card card-1">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Tech Education</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-building"></i>
+                            <span>Real Estate</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Expert Coaching</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text reveal-right">
+                    <h3>Dual Excellence in Technology & Real Estate</h3>
+                    <p>ZORVIX is an innovative company that excels in two distinct domains: technology education and
+                        real estate business. Founded with a vision to empower individuals through knowledge and
+                        investment opportunities, we've created a unique ecosystem where learning and growth go hand in
+                        hand.</p>
+                    <p>Our software institute provides cutting-edge training programs designed to equip students with
+                        the skills needed to thrive in today's tech-driven world. Meanwhile, our real estate division
+                        offers exceptional property solutions for both personal and investment purposes.</p>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <span class="stat-number">5000+</span>
+                            <span class="stat-text">Students Trained</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-text">Properties Managed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-text">Expert Instructors</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-text">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span>Services</span></h2>
+                <div class="underline"></div>
+                <p>Discover our comprehensive range of services in both technology education and real estate</p>
+            </div>
+            <div class="services-tabs">
+                <div class="tabs-header">
+                    <div class="tab-item active" data-tab="tech">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Technology Education</span>
+                    </div>
+                    <div class="tab-item" data-tab="real-estate">
+                        <i class="fas fa-home"></i>
+                        <span>Real Estate</span>
+                    </div>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-content active" id="tech-content">
+                        <div class="services-grid">
+                            <div class="service-card reveal-up">
+                                <div class="service-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3>Full Stack Development</h3>
+                                <p>Comprehensive training in both frontend and backend technologies including HTML5,
+                                    CSS3, JavaScript, React, Node.js, Python, and databases.</p>
+                            </div>
+                            <div class="service-card reveal-up delay-1">
+                                <div class="service-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h3>Mobile App Development</h3>
+                                <p>Learn to build cross-platform and native mobile applications using React Native,
+                                    Flutter, and other modern frameworks.</p>
+                            </div>
+                            <div class="service-card reveal-up delay-2">
+                                <div class="service-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3>AI & Machine Learning</h3>
+                                <p>Specialized courses in artificial intelligence, machine learning algorithms, and data
+                                    science fundamentals.</p>
+                            </div>
+                            <div class="service-card reveal-up delay-3">
+                                <div class="service-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Career Coaching</h3>
+                                <p>Personalized career guidance, interview preparation, and portfolio development to
+                                    help you land your dream tech job.</p>
+                            </div>
+                            <div class="service-card reveal-up delay-4">
+                                <div class="service-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <h3>Project-Based Learning</h3>
+                                <p>Hands-on experience through real-world projects that build your portfolio and
+                                    practical skills.</p>
+                            </div>
+                            <div class="service-card reveal-up delay-5">
+                                <div class="service-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h3>Certification Programs</h3>
+                                <p>Industry-recognized certification courses that validate your skills and enhance your
+                                    employability.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="real-estate-content">
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h3>Property Consultation</h3>
+                                <p>Expert advice on property investments, market trends, and finding the perfect
+                                    property for your needs.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <h3>Investment Opportunities</h3>
+                                <p>Curated selection of high-return investment properties with comprehensive analysis
+                                    and ROI projections.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h3>Commercial Properties</h3>
+                                <p>Specialized services for commercial real estate including office spaces, retail
+                                    locations, and industrial properties.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <h3>Residential Properties</h3>
+                                <p>Wide range of residential options from apartments and condos to luxury homes and
+                                    vacation properties.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>Market Analysis</h3>
+                                <p>Detailed market research and analysis to help you make informed decisions about
+                                    property investments.</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-key"></i>
+                                </div>
+                                <h3>Property Management</h3>
+                                <p>Comprehensive property management services to maximize returns on your investment
+                                    properties.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span>Courses</span></h2>
+                <div class="underline"></div>
+                <p>Explore our comprehensive range of technology courses designed to build your skills</p>
+            </div>
+            <div class="courses-slider">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743667732/full_stack_development_svwx0q.png"
+                            alt="Full Stack Web Development" />
+                        <div class="course-tag">Bestseller</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Full Stack Web Development</h3>
+                        <div class="course-info">
+                            <span><i class="fas fa-clock"></i> 16 Weeks</span>
+                            <span><i class="fas fa-user-graduate"></i> Beginner to Advanced</span>
+                        </div>
+                        <p>Master both frontend and backend technologies to become a complete web developer.</p>
+                        <div class="course-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <a href="#contact" class="btn course-btn">Enroll Now</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743672680/mobile_app_develpment_axigyc.png"
+                            alt="Mobile App Development">
+                    </div>
+                    <div class="course-content">
+                        <h3>Mobile App Development</h3>
+                        <div class="course-info">
+                            <span><i class="fas fa-clock"></i> 12 Weeks</span>
+                            <span><i class="fas fa-user-graduate"></i> Intermediate</span>
+                        </div>
+                        <p>Learn to build native and cross-platform mobile applications for iOS and Android.</p>
+                        <div class="course-tech">
+                            <span>React Native</span>
+                            <span>Flutter</span>
+                            <span>Swift</span>
+                            <span>Kotlin</span>
+                        </div>
+                        <a href="#contact" class="btn course-btn">Enroll Now</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743672808/datascience-ai_e4dfuc.png"
+                            alt="Data Science & AI">
+                        <div class="course-tag">New</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Data Science & AI</h3>
+                        <div class="course-info">
+                            <span><i class="fas fa-clock"></i> 20 Weeks</span>
+                            <span><i class="fas fa-user-graduate"></i> Advanced</span>
+                        </div>
+                        <p>Dive into the world of data science, machine learning, and artificial intelligence.</p>
+                        <div class="course-tech">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>PyTorch</span>
+                            <span>Pandas</span>
+                            <span>NumPy</span>
+                        </div>
+                        <a href="#contact" class="btn course-btn">Enroll Now</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/placeholder.svg?height=200&width=300" alt="UI/UX Design">
+                    </div>
+                    <div class="course-content">
+                        <h3>UI/UX Design</h3>
+                        <div class="course-info">
+                            <span><i class="fas fa-clock"></i> 10 Weeks</span>
+                            <span><i class="fas fa-user-graduate"></i> All Levels</span>
+                        </div>
+                        <p>Master the art of creating beautiful, functional, and user-friendly interfaces.</p>
+                        <div class="course-tech">
+                            <span>Figma</span>
+                            <span>Adobe XD</span>
+                            <span>Sketch</span>
+                            <span>Prototyping</span>
+                        </div>
+                        <a href="#contact" class="btn course-btn">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="courses-nav">
+                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="properties">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured <span>Properties</span></h2>
+                <div class="underline"></div>
+                <p>Discover our selection of premium real estate opportunities</p>
+            </div>
+            <div class="properties-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="investment">Investment</button>
+            </div>
+            <div class="properties-grid">
+                <div class="property-card" data-category="residential">
+                    <div class="property-image">
+                        <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743673199/luxury_apartment_z4xoag.jpg"
+                            alt="Luxury Apartment">
+                        <div class="property-tag">For Sale</div>
+                        <div class="property-price">$450,000</div>
+                    </div>
+                    <div class="property-content">
+                        <h3>Luxury Apartment in Downtown</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Main Street, Downtown</span>
+                        </div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-vector-square"></i> 1,500 sq ft</span>
+                        </div>
+                        <p>Modern luxury apartment with stunning city views, premium finishes, and exclusive amenities.
+                        </p>
+                        <a href="#contact" class="btn property-btn">View Details</a>
+                    </div>
+                </div>
+                <div class="property-card" data-category="commercial">
+                    <div class="property-image">
+                        <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743673199/office-space_h7hidu.jpg"
+                            alt="Office Space">
+                        <div class="property-tag">For Lease</div>
+                        <div class="property-price">$25/sq ft</div>
+                    </div>
+                    <div class="property-content">
+                        <h3>Premium Office Space</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>456 Business Park, Tech District</span>
+                        </div>
+                        <div class="property-features">
+                            <span><i class="fas fa-vector-square"></i> 5,000 sq ft</span>
+                            <span><i class="fas fa-car"></i> 10 Parking</span>
+                            <span><i class="fas fa-building"></i> 3rd Floor</span>
+                        </div>
+                        <p>State-of-the-art office space in prime location with modern amenities and flexible layout
+                            options.</p>
+                        <a href="#contact" class="btn property-btn">View Details</a>
+                    </div>
+                </div>
+                <div class="property-card" data-category="investment">
+                    <div class="property-image">
+                        <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743673199/residential_apartment_qc3qze.jpg"
+                            alt="Multi-Unit Building">
+                        <div class="property-tag">Investment</div>
+                        <div class="property-price">$1,200,000</div>
+                    </div>
+                    <div class="property-content">
+                        <h3>Multi-Unit Residential Building</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>789 Investment Ave, Growth District</span>
+                        </div>
+                        <div class="property-features">
+                            <span><i class="fas fa-building"></i> 8 Units</span>
+                            <span><i class="fas fa-percentage"></i> 8% Cap Rate</span>
+                            <span><i class="fas fa-chart-line"></i> High ROI</span>
+                        </div>
+                        <p>Fully occupied multi-unit building with strong rental history and excellent growth potential.
+                        </p>
+                        <a href="#contact" class="btn property-btn">View Details</a>
+                    </div>
+                </div>
+                <div class="property-card" data-category="residential">
+                    <div class="property-image">
+                        <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743673355/spacious_home_qda7o5.jpg"
+                            alt="Family Home">
+                        <div class="property-tag">For Sale</div>
+                        <div class="property-price">$650,000</div>
+                    </div>
+                    <div class="property-content">
+                        <h3>Spacious Family Home</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>321 Suburban Lane, Family District</span>
+                        </div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 3 Baths</span>
+                            <span><i class="fas fa-vector-square"></i> 2,800 sq ft</span>
+                        </div>
+                        <p>Beautiful family home with spacious backyard, modern kitchen, and excellent school district.
+                        </p>
+                        <a href="#contact" class="btn property-btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more-container">
+                <a href="#contact" class="btn view-more-btn">View All Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our <span>Clients Say</span></h2>
+                <div class="underline"></div>
+            </div>
+            <div class="testimonials-slider">
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>ZORVIX's Full Stack Development course completely transformed my career. The hands-on
+                            approach and expert instructors helped me land a job at a top tech company within weeks of
+                            graduation.</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743673553/profesional_avatar_gkafvl.jpg"
+                                alt="Sarah Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Software Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>The investment property I purchased through ZORVIX has exceeded all my expectations. Their
+                            market analysis was spot-on, and the returns have been consistently higher than projected.
+                        </p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743675185/professional-3_ingftz.jpg" alt="Michael Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Property Investor</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>As someone with no prior coding experience, I was amazed at how quickly I picked up the
+                            skills in ZORVIX's beginner-friendly courses. The support from instructors was exceptional.
+                        </p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743675185/profesional-2_bcoexr.jpg" alt="Emily Rodriguez">
+                        </div>
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Web Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonials-nav">
+            <div class="nav-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In <span>Touch</span></h2>
+                <div class="underline"></div>
+                <p>Have questions? Reach out to us and we'll get back to you as soon as possible</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Our Location</h3>
+                            <p>123 Tech Plaza, Innovation District<br>Silicon Valley, CA 94000</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Call Us</h3>
+                            <p>+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>info@zorvix.com<br>support@zorvix.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="social-media">
+                        <h3>Connect With Us</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder="Subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Your Message" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn submit-btn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-info">
+                        <div class="footer-logo">
+                            <h2>ZORVIX</h2>
+                        </div>
+                        <p>Empowering individuals through innovative technology education and strategic real estate
+                            investments.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#courses">Courses</a></li>
+                            <li><a href="#properties">Properties</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Our Services</h3>
+                        <ul>
+                            <li><a href="#services">Full Stack Development</a></li>
+                            <li><a href="#services">Mobile App Development</a></li>
+                            <li><a href="#services">Property Consultation</a></li>
+                            <li><a href="#services">Investment Opportunities</a></li>
+                            <li><a href="#services">Career Coaching</a></li>
+                            <li><a href="#services">Market Analysis</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-newsletter">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to our newsletter to receive updates on new courses, properties, and special
+                            offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your Email Address" required>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 ZORVIX. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu if open
+                if (nav.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    nav.classList.remove('active');
+                }
+            });
+        });
+
+        // Reveal animations on scroll
+        const revealElements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up');
+        
+        function reveal() {
+            revealElements.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // Services Tabs
+        const tabItems = document.querySelectorAll('.tab-item');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabItems.forEach(tab => tab.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to current tab and content
+                this.classList.add('active');
+                document.getElementById(tabId + '-content').classList.add('active');
+            });
+        });
+
+        // Property Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const propertyCards = document.querySelectorAll('.property-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to current button
+                this.classList.add('active');
+                
+                // Filter properties
+                propertyCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Testimonial Slider
+        const dots = document.querySelectorAll('.dot');
+        const testimonialSlider = document.querySelector('.testimonials-slider');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            // Remove active class from all dots
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Add active class to current dot
+            dots[index].classList.add('active');
+            
+            // Move slider
+            testimonialSlider.style.transform = `translateX(-${index * 100}%)`;
+            currentSlide = index;
+        }
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        // Auto slide testimonials
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % dots.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+
+</html>
