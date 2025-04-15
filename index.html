@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="icon"
-        href="https://res.cloudinary.com/dsjcty43b/image/upload/v1743782818/Zorvixe_logo_eftrc3.png">
+    <link rel="icon" href="https://res.cloudinary.com/dsjcty43b/image/upload/v1743782818/Zorvixe_logo_eftrc3.png">
 </head>
 
 <body>
@@ -348,7 +347,8 @@
                 </div>
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743681837/uiux_design_b8ysyx.png" alt="UI/UX Design">
+                        <img src="https://res.cloudinary.com/dsjcty43b/image/upload/v1743681837/uiux_design_b8ysyx.png"
+                            alt="UI/UX Design">
                     </div>
                     <div class="course-content">
                         <h3>UI/UX Design</h3>
@@ -641,9 +641,12 @@
                         <div class="social-icons">
                             <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/onesolutionsekam/" class="social-icon"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/in/zorvixe-technologies-88628935a/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://www.youtube.com/@OneSolutionsEkam" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/onesolutionsekam/" class="social-icon"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/zorvixe-technologies-88628935a/" class="social-icon"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/@OneSolutionsEkam" class="social-icon"><i
+                                    class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
@@ -720,7 +723,7 @@
                         <p>Subscribe to our newsletter to receive updates on new courses, properties, and special
                             offers.</p>
                         <form class="newsletter-form">
-                            <input type="email" placeholder="Your Email Address" required>
+                            <input type="email" name="email" placeholder="Your Email Address" required>
                             <button type="submit"><i class="fas fa-paper-plane"></i></button>
                         </form>
                     </div>
@@ -738,6 +741,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- Notification Modal -->
+    <div class="notification-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body"></div>
+        </div>
+    </div>
 
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top">
@@ -893,7 +904,121 @@
                 behavior: 'smooth'
             });
         });
+
+        // Handle Contact Form Submission
+        // Handle Contact Form Submission
+        document.querySelector('.contact-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            const modal = document.querySelector('.notification-modal');
+            const modalBody = modal.querySelector('.modal-body');
+
+            try {
+                const response = await fetch('http://localhost:5000/submit-contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    modalBody.innerHTML = `
+                <i class="fas fa-check-circle success-icon"></i>
+                <h3>Thank you!</h3>
+                <p>Your message has been sent successfully.</p>
+            `;
+                    this.reset();
+                } else {
+                    modalBody.innerHTML = `
+                <i class="fas fa-times-circle error-icon"></i>
+                <h3>Error!</h3>
+                <p>${result.message || 'Failed to send message. Please try again later.'}</p>
+            `;
+                }
+            } catch (error) {
+                modalBody.innerHTML = `
+            <i class="fas fa-times-circle error-icon"></i>
+            <h3>Connection Error!</h3>
+            <p>Please check your internet connection and try again.</p>
+        `;
+            }
+
+            modal.style.display = 'block';
+        });
+
+        // Handle Newsletter Form Submission
+        // Handle Newsletter Form Submission
+        document.querySelector('.newsletter-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = {
+                email: this.querySelector('[name="email"]').value
+            };
+
+            const modal = document.querySelector('.notification-modal');
+            const modalBody = modal.querySelector('.modal-body');
+
+            try {
+                const response = await fetch('http://localhost:5000/submit-newsletter', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+
+                const result = await response.json();
+
+                if (result.success) {
+                    modalBody.innerHTML = `
+                <i class="fas fa-check-circle success-icon"></i>
+                <h3>Subscribed!</h3>
+                <p>Thank you for subscribing to our newsletter.</p>
+            `;
+                    this.reset();
+                } else {
+                    modalBody.innerHTML = `
+                <i class="fas fa-times-circle error-icon"></i>
+                <h3>Error!</h3>
+                <p>${result.message || 'Subscription failed. Please try again later.'}</p>
+            `;
+                }
+            } catch (error) {
+                modalBody.innerHTML = `
+            <i class="fas fa-times-circle error-icon"></i>
+            <h3>Connection Error!</h3>
+            <p>Please check your internet connection and try again.</p>
+        `;
+            }
+
+            modal.style.display = 'block';
+        });
+
+        // Close Modal Functionality
+        document.querySelector('.close-modal').addEventListener('click', function () {
+            document.querySelector('.notification-modal').style.display = 'none';
+        });
+
+        window.addEventListener('click', function (e) {
+            const modal = document.querySelector('.notification-modal');
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     </script>
+
+
 </body>
 
 </html>
