@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer id="footer" className="footer light-background">
       <div className="container footer-top">
@@ -82,17 +82,15 @@ const Footer = () => {
       </div>
 
       {/* Scroll Top Button */}
-      <a 
-        href="#" 
-        id="scroll-top" 
+      <button
+        id="scroll-top"
         className="scroll-top d-flex align-items-center justify-content-center"
-        onClick={(e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
+        aria-label="Scroll to top"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       >
         <i className="bi bi-arrow-up-short"></i>
-      </a>
+      </button>
+
     </footer>
   );
 };

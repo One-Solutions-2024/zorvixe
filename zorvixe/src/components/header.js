@@ -117,12 +117,12 @@ const Header = () => {
           grid-template-columns: 1fr 300px;
           gap: 2rem;
         }
-        .services-list {
+        .services-list_navbar {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 1rem;
         }
-        .service-item {
+        .service-item_navbar {
           display: flex;
           align-items: flex-start;
           gap: 1rem;
@@ -133,7 +133,7 @@ const Header = () => {
           transition: all 0.3s ease;
           border: 1px solid transparent;
         }
-        .service-item:hover {
+        .service-item_navbar:hover {
           background: #f8f9fa;
           border-color: #5d57f4;
           color: #5d57f4;
@@ -152,23 +152,23 @@ const Header = () => {
           transition: all 0.3s ease;
           flex-shrink: 0;
         }
-        .service-item:hover .service-icon {
+        .service-item_navbar:hover .service-icon {
           background: #5d57f4;
           color: white;
         }
-        .service-info {
+        .service-info_navbar {
           display: flex;
           flex-direction: column;
           justify-content: center;
           flex-grow: 1;
         }
-        .service-info h4 {
+        .service-info_navbar h4 {
           margin: 0 0 0.25rem 0;
           font-size: 0.9rem;
           font-weight: 600;
           line-height: 1.2;
         }
-        .service-info p {
+        .service-info_navbar p {
           margin: 0;
           font-size: 0.8rem;
           color: #666;
@@ -244,7 +244,7 @@ const Header = () => {
           grid-template-columns: 1fr;
           gap: 1rem;
         }
-        .mobile-service-item {
+        .mobile-service-item_navbar {
           display: flex;
           align-items: flex-start;
           gap: 1rem;
@@ -256,7 +256,7 @@ const Header = () => {
           transition: all 0.3s ease;
           border: 1px solid transparent;
         }
-        .mobile-service-item:hover {
+        .mobile-service-item_navbar:hover {
           background: #e9ecef;
           border-color: #5d57f4;
           color: #5d57f4;
@@ -273,23 +273,23 @@ const Header = () => {
           flex-shrink: 0;
           transition: all 0.3s ease;
         }
-        .mobile-service-item:hover .mobile-service-icon {
+        .mobile-service-item_navbar:hover .mobile-service-icon {
           background: #5d57f4;
           color: white;
         }
-        .mobile-service-info {
+        .mobile-service-info_navbar {
           display: flex;
           flex-direction: column;
           justify-content: center;
           flex-grow: 1;
         }
-        .mobile-service-info h4 {
+        .mobile-service-info_navbar h4 {
           margin: 0 0 0.25rem 0;
           font-size: 1rem;
           font-weight: 600;
           line-height: 1.2;
         }
-        .mobile-service-info p {
+        .mobile-service-info_navbar p {
           margin: 0;
           font-size: 0.85rem;
           color: #666;
@@ -320,7 +320,7 @@ const Header = () => {
             left: 5vw;
             transform: none;
           }
-          .services-list {
+          .services-list_navbar {
             grid-template-columns: 1fr;
           }
         }
@@ -377,20 +377,20 @@ const Header = () => {
                   <div className="services-grid">
                     <div>
                       <h3 className="mb-3 text-dark">Our Services</h3>
-                      <div className="services-list">
+                      <div className="services-list_navbar">
                         {services.map((service) => {
                           const IconComponent = service.icon;
                           return (
                             <Link 
                               key={service.name} 
                               to={service.href} 
-                              className="service-item"
+                              className="service-item_navbar"
                               onClick={() => setServicesDropdownOpen(false)}
                             >
                               <div className="service-icon">
                                 <IconComponent size={20} />
                               </div>
-                              <div className="service-info">
+                              <div className="service-info_navbar">
                                 <h4>{service.name}</h4>
                                 <p>{service.description}</p>
                               </div>
@@ -515,7 +515,7 @@ const Header = () => {
                     <Link 
                       key={service.name} 
                       to={service.href} 
-                      className="mobile-service-item"
+                      className="mobile-service-item_navbar"
                       onClick={() => {
                         setMobileServicesOpen(false);
                         setMobileNavOpen(false);
@@ -524,7 +524,7 @@ const Header = () => {
                       <div className="mobile-service-icon">
                         <IconComponent size={20} />
                       </div>
-                      <div className="mobile-service-info">
+                      <div className="mobile-service-info_navbar">
                         <h4>{service.name}</h4>
                         <p>{service.description}</p>
                       </div>

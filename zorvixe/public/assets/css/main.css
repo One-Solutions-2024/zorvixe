@@ -574,20 +574,23 @@ h6 {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
+/* Preloader wrapper */
 #preloader {
   position: fixed;
   inset: 0;
   z-index: 999999;
   overflow: hidden;
   background: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.6s ease-out;
 }
 
-#preloader:before {
+/* Spinning border circle */
+#preloader::before {
   content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
+  position: absolute;
   border: 6px solid #ffffff;
   border-color: var(--accent-color) transparent var(--accent-color) transparent;
   border-radius: 50%;
@@ -596,16 +599,22 @@ h6 {
   animation: animate-preloader 1.5s linear infinite;
 }
 
+/* Center logo image */
+#preloader-logo {
+  width: 28px;
+  height: 28px;
+  z-index: 1;
+}
+
+/* Animation for spinning */
 @keyframes animate-preloader {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
 }
-
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/

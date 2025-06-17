@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 const Home = () => {
 
-     useEffect(() => {
+    useEffect(() => {
         document.title = "Home | Zorvixe";
-      }, []);
+    }, []);
 
     const redirectToContact = () => {
         window.location.href = "contact_us";
@@ -137,7 +137,7 @@ const Home = () => {
                                 <li><i className="bi bi-check-circle"></i> <span>⚙️ Built on tech & trust</span></li>
                                 <li><i className="bi bi-check-circle"></i> <span>🚀 Focused on your growth</span></li>
                             </ul>
-                            <a href="#" className="read-more"><span>Read More</span><i className="bi bi-arrow-right"></i></a>
+                            <a href="/about_us" className="read-more"><span>Read More</span><i className="bi bi-arrow-right"></i></a>
                         </div>
 
                         <div className="col-lg-6 about-images" data-aos="fade-up" data-aos-delay="200">
@@ -374,7 +374,7 @@ const Home = () => {
                                         <i className="bi bi-code-square"></i>
                                     </div>
                                     <div className="service-content">
-                                        <h4><a href="#">Software Engineering</a></h4>
+                                        <h4><a href="/services/web_development">Software Engineering</a></h4>
                                         <p>Building reliable software tailored to your needs.</p>
                                     </div>
                                 </div>
@@ -384,7 +384,7 @@ const Home = () => {
                                         <i className="bi bi-graph-up"></i>
                                     </div>
                                     <div className="service-content">
-                                        <h4><a href="#">Business Analytics</a></h4>
+                                        <h4><a href="/services/digitalmarketing">Business Analytics</a></h4>
                                         <p>Turning data into smart business insights.</p>
                                     </div>
                                 </div>
@@ -394,7 +394,7 @@ const Home = () => {
                                         <i className="bi bi-phone"></i>
                                     </div>
                                     <div className="service-content">
-                                        <h4><a href="#">Mobile Solutions</a></h4>
+                                        <h4><a href="/services/mobile_app_solutions">Mobile Solutions</a></h4>
                                         <p>Delivering powerful apps for mobile success.</p>
                                     </div>
                                 </div>
@@ -404,7 +404,7 @@ const Home = () => {
                                         <i className="bi bi-gear"></i>
                                     </div>
                                     <div className="service-content">
-                                        <h4><a href="#">Tech Infrastructure</a></h4>
+                                        <h4><a href="/services/ui_ux">Tech Infrastructure</a></h4>
                                         <p>Building strong foundations for your technology.</p>
                                     </div>
                                 </div>
@@ -444,8 +444,8 @@ const Home = () => {
                                 </div>
 
                                 <div className="cta-action mt-5">
-                                    <a href="#" className="btn btn-primary btn-lg me-3">Get Started</a>
-                                    <a href="#" className="btn btn-outline-primary btn-lg">Learn More</a>
+                                    <a href="/contact_us" className="btn btn-primary btn-lg me-3">Get Started</a>
+                                    <a href="/contact_us" className="btn btn-outline-primary btn-lg">Learn More</a>
                                 </div>
                             </div>
                         </div>

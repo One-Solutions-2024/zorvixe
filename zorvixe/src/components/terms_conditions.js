@@ -71,9 +71,10 @@ const TermsAndConditions = () => {
                               may be displayed, included or made available by the Service.</p>
                       </li>
                       <li className="mb-3">
-                          <p><strong className="text-dark">Website</strong> refers to Zorvixe, accessible from <a
-                                  href="https://zorvixe.com/" rel="external nofollow noopener"
-                                  target="_blank" className="text-decoration-none text-primary">https://zorvixe.com/</a></p>
+                          <p><strong className="text-dark">Website</strong> refers to Zorvixe, accessible from 
+                          <a
+                                  href="https://zorvixe.onrender.com/" rel="noopener noreferrer"
+                                  target="_blank" className="text-decoration-none text-primary">https://zorvixe.onrender.com/</a></p>
                       </li>
                       <li className="mb-3">
                           <p><strong className="text-dark">You</strong> means the individual accessing or using the Service, or the
