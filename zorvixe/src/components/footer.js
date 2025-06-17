@@ -38,11 +38,11 @@ const Footer = () => {
           <div className="col-lg-2 col-md-3 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><Link to="/ui_ux">Web Design</Link></li>
-              <li><Link to="/web_development">Web Development</Link></li>
-              <li><Link to="/web_development">Product Management</Link></li>
-              <li><Link to="/digitalmarketing">Marketing</Link></li>
-              <li><Link to="/ui_ux">Graphic Design</Link></li>
+              <li><Link to="/services/ui_ux">Web Design</Link></li>
+              <li><Link to="/services/web_development">Web Development</Link></li>
+              <li><Link to="/services/web_development">Product Management</Link></li>
+              <li><Link to="/services/digitalmarketing">Marketing</Link></li>
+              <li><Link to="/services/ui_ux">Graphic Design</Link></li>
             </ul>
           </div>
 
