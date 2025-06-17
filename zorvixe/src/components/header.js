@@ -334,7 +334,6 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="logo d-flex align-items-center me-auto me-xl-0">
             <img src="/assets/img/zorvixe_logo.png" alt="Zorvixe Logo" />
-            <span className="ms-1">.</span>
           </Link>
 
           {/* Navigation Menu (Desktop) */}
