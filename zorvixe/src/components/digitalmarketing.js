@@ -2,16 +2,19 @@ import React, { useEffect } from 'react';
 import { Tab, Nav, Row, Col } from 'react-bootstrap';
 
 const DigitalMarketingService = () => {
+
+
   useEffect(() => {
-    // Initialize AOS animations on component mount
+    window.scrollTo(0, 0);
     if (window.AOS) {
-      window.AOS.init({ duration: 1000 });
+      window.AOS.init({ duration: 800 });
     }
   }, []);
 
+
   useEffect(() => {
-      document.title = "Digital Marketing | Zorvixe";
-    }, []);
+    document.title = "Digital Marketing | Zorvixe";
+  }, []);
 
   return (
     <main className="main">
@@ -23,15 +26,15 @@ const DigitalMarketingService = () => {
               <div className="col-lg-8">
                 <h1 className="heading-title">Digital Marketing</h1>
                 <p className="mb-0">
-                  Transform your online presence with data-driven digital marketing strategies. 
-                  We combine cutting-edge technology with proven marketing techniques to deliver 
+                  Transform your online presence with data-driven digital marketing strategies.
+                  We combine cutting-edge technology with proven marketing techniques to deliver
                   measurable results that grow your business.
                 </p>
               </div>
             </div>
           </div>
         </div>
-        
+
         <nav className="breadcrumbs">
           <div className="container">
             <ol>
@@ -48,10 +51,10 @@ const DigitalMarketingService = () => {
           <div className="row gy-5">
             <div className="col-lg-6">
               <div className="service-main-image" data-aos="zoom-in" data-aos-delay="200">
-                <img 
-                  src="/assets/img/services/digital_marketing_section_image.jpg" 
-                  alt="Digital Marketing" 
-                  className="img-fluid rounded-4" 
+                <img
+                  src="/assets/img/services/digital_marketing_section_image.jpg"
+                  alt="Digital Marketing"
+                  className="img-fluid rounded-4"
                 />
                 <div className="experience-badge">
                   <span>1+</span>
@@ -117,10 +120,10 @@ const DigitalMarketingService = () => {
                 <Tab.Pane eventKey="seo">
                   <div className="row align-items-center">
                     <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
-                      <img 
-                        src="/assets/img/services/digital_marketing_seo.jpg" 
-                        alt="SEO optimization process" 
-                        className="img-fluid rounded-4" 
+                      <img
+                        src="/assets/img/services/digital_marketing_seo.jpg"
+                        alt="SEO optimization process"
+                        className="img-fluid rounded-4"
                       />
                     </div>
                     <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
@@ -160,10 +163,10 @@ const DigitalMarketingService = () => {
                 <Tab.Pane eventKey="advertising">
                   <div className="row align-items-center">
                     <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
-                      <img 
-                        src="/assets/img/services/digital_marketing_ppc.jpg" 
-                        alt="Digital advertising dashboard" 
-                        className="img-fluid rounded-4" 
+                      <img
+                        src="/assets/img/services/digital_marketing_ppc.jpg"
+                        alt="Digital advertising dashboard"
+                        className="img-fluid rounded-4"
                       />
                     </div>
                     <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
@@ -202,10 +205,10 @@ const DigitalMarketingService = () => {
                 <Tab.Pane eventKey="social">
                   <div className="row align-items-center">
                     <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
-                      <img 
-                        src="/assets/img/services/digital_marketing_social_media.webp" 
-                        alt="Social media marketing strategy" 
-                        className="img-fluid rounded-4" 
+                      <img
+                        src="/assets/img/services/digital_marketing_social_media.webp"
+                        alt="Social media marketing strategy"
+                        className="img-fluid rounded-4"
                       />
                     </div>
                     <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
@@ -244,10 +247,10 @@ const DigitalMarketingService = () => {
                 <Tab.Pane eventKey="conversion">
                   <div className="row align-items-center">
                     <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
-                      <img 
-                        src="/assets/img/services/digital_marketing_email.jpg" 
-                        alt="Conversion rate optimization process" 
-                        className="img-fluid rounded-4" 
+                      <img
+                        src="/assets/img/services/digital_marketing_email.jpg"
+                        alt="Conversion rate optimization process"
+                        className="img-fluid rounded-4"
                       />
                     </div>
                     <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">

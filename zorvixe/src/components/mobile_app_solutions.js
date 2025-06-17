@@ -4,6 +4,12 @@ const MobileAppSolutions = () => {
   useEffect(() => {
     document.title = "Mobile App Solutions | Zorvixe";
   }, []);
+   useEffect(() => {
+    window.scrollTo(0, 0);
+    if (window.AOS) {
+      window.AOS.init({ duration: 800 });
+    }
+  }, []);
   return (
     <main className="main">
       {/* Page Title */}

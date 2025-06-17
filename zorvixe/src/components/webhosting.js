@@ -6,9 +6,16 @@ const WebHosting = () => {
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
-   useEffect(() => {
-          document.title = "Web Hosting | Zorvixe";
-        }, []);
+  useEffect(() => {
+    document.title = "Web Hosting | Zorvixe";
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (window.AOS) {
+      window.AOS.init({ duration: 800 });
+    }
+  }, []);
 
   return (
     <main className="main">
@@ -43,7 +50,7 @@ const WebHosting = () => {
             <div className="col-lg-6">
               <div className="service-main-image" data-aos="zoom-in" data-aos-delay="200">
                 <img src="/assets/img/services/hosting_1.jpg" alt="Web Hosting Infrastructure"
-                  className="img-fluid rounded-4"/>
+                  className="img-fluid rounded-4" />
                 <div className="experience-badge">
                   <span>1+</span>
                   <p>Years Hosting Expertise</p>
@@ -82,7 +89,7 @@ const WebHosting = () => {
           <div className="service-tabs mt-5" data-aos="fade-up">
             <ul className="nav nav-tabs" id="service-details-tabs" role="tablist">
               <li className="nav-item" role="presentation">
-                <button 
+                <button
                   className={`nav-link ${activeTab === 'tab1' ? 'active' : ''}`}
                   onClick={() => handleTabChange('tab1')}
                 >
@@ -90,7 +97,7 @@ const WebHosting = () => {
                 </button>
               </li>
               <li className="nav-item" role="presentation">
-                <button 
+                <button
                   className={`nav-link ${activeTab === 'tab2' ? 'active' : ''}`}
                   onClick={() => handleTabChange('tab2')}
                 >
@@ -98,7 +105,7 @@ const WebHosting = () => {
                 </button>
               </li>
               <li className="nav-item" role="presentation">
-                <button 
+                <button
                   className={`nav-link ${activeTab === 'tab3' ? 'active' : ''}`}
                   onClick={() => handleTabChange('tab3')}
                 >
@@ -106,7 +113,7 @@ const WebHosting = () => {
                 </button>
               </li>
               <li className="nav-item" role="presentation">
-                <button 
+                <button
                   className={`nav-link ${activeTab === 'tab4' ? 'active' : ''}`}
                   onClick={() => handleTabChange('tab4')}
                 >
@@ -121,7 +128,7 @@ const WebHosting = () => {
                 <div className="row align-items-center">
                   <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
                     <img src="/assets/img/services/hosting_2.jpg" alt="Shared Hosting"
-                      className="img-fluid rounded-4"/>
+                      className="img-fluid rounded-4" />
                   </div>
                   <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
                     <h3>Shared Web Hosting</h3>
@@ -153,7 +160,7 @@ const WebHosting = () => {
                 <div className="row align-items-center">
                   <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
                     <img src="/assets/img/services/hosting_3.jpg" alt="VPS Hosting"
-                      className="img-fluid rounded-4"/>
+                      className="img-fluid rounded-4" />
                   </div>
                   <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
                     <h3>Virtual Private Servers</h3>
@@ -184,7 +191,7 @@ const WebHosting = () => {
                 <div className="row align-items-center">
                   <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
                     <img src="/assets/img/services/hosting_4.jpg" alt="Dedicated Servers"
-                      className="img-fluid rounded-4"/>
+                      className="img-fluid rounded-4" />
                   </div>
                   <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
                     <h3>Dedicated Server Hosting</h3>
@@ -215,7 +222,7 @@ const WebHosting = () => {
                 <div className="row align-items-center">
                   <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
                     <img src="/assets/img/services/hosting_5.jpg" alt="Cloud Hosting"
-                      className="img-fluid rounded-4"/>
+                      className="img-fluid rounded-4" />
                   </div>
                   <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
                     <h3>Cloud Hosting Solutions</h3>

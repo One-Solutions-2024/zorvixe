@@ -7,9 +7,16 @@ const WebDevelopment = () => {
     setActiveTab(tab);
   };
 
-   useEffect(() => {
-          document.title = "Web Development | Zorvixe";
-        }, []);
+  useEffect(() => {
+    document.title = "Web Development | Zorvixe";
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (window.AOS) {
+      window.AOS.init({ duration: 800 });
+    }
+  }, []);
 
   return (
     <main className="main">
@@ -43,7 +50,7 @@ const WebDevelopment = () => {
             <div className="col-lg-6">
               <div className="service-main-image" data-aos="zoom-in" data-aos-delay="200">
                 <img src="/assets/img/services/services-4.webp" alt="Web Development Team"
-                  className="img-fluid rounded-4"/>
+                  className="img-fluid rounded-4" />
                 <div className="experience-badge">
                   <span>1+</span>
                   <p>Years Experience</p>
@@ -81,7 +88,7 @@ const WebDevelopment = () => {
           <div className="service-tabs mt-5" data-aos="fade-up">
             <ul className="nav nav-tabs" id="service-details-tabs" role="tablist">
               <li className="nav-item" role="presentation">
-                <button 
+                <button
                   className={`nav-link ${activeTab === 'tab1' ? 'active' : ''}`}
                   onClick={() => handleTabChange('tab1')}
                 >
@@ -89,7 +96,7 @@ const WebDevelopment = () => {
                 </button>
               </li>
               <li className="nav-item" role="presentation">
-                <button 
+                <button
                   className={`nav-link ${activeTab === 'tab2' ? 'active' : ''}`}
                   onClick={() => handleTabChange('tab2')}
                 >
@@ -97,7 +104,7 @@ const WebDevelopment = () => {
                 </button>
               </li>
               <li className="nav-item" role="presentation">
-                <button 
+                <button
                   className={`nav-link ${activeTab === 'tab3' ? 'active' : ''}`}
                   onClick={() => handleTabChange('tab3')}
                 >
@@ -105,7 +112,7 @@ const WebDevelopment = () => {
                 </button>
               </li>
               <li className="nav-item" role="presentation">
-                <button 
+                <button
                   className={`nav-link ${activeTab === 'tab4' ? 'active' : ''}`}
                   onClick={() => handleTabChange('tab4')}
                 >
@@ -120,7 +127,7 @@ const WebDevelopment = () => {
                 <div className="row align-items-center">
                   <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
                     <img src="/assets/img/services/services-5.webp" alt="Frontend Development"
-                      className="img-fluid rounded-4"/>
+                      className="img-fluid rounded-4" />
                   </div>
                   <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
                     <h3>Modern Frontend Development</h3>
@@ -154,7 +161,7 @@ const WebDevelopment = () => {
                 <div className="row align-items-center">
                   <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
                     <img src="/assets/img/services/services-6.webp" alt="Backend Development"
-                      className="img-fluid rounded-4"/>
+                      className="img-fluid rounded-4" />
                   </div>
                   <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
                     <h3>Robust Backend Systems</h3>
@@ -188,7 +195,7 @@ const WebDevelopment = () => {
                 <div className="row align-items-center">
                   <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
                     <img src="/assets/img/services/services-7.webp" alt="E-commerce Solutions"
-                      className="img-fluid rounded-4"/>
+                      className="img-fluid rounded-4" />
                   </div>
                   <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
                     <h3>E-commerce Development</h3>
@@ -221,7 +228,7 @@ const WebDevelopment = () => {
                 <div className="row align-items-center">
                   <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
                     <img src="/assets/img/services/services-8.webp" alt="Mobile Integration"
-                      className="img-fluid rounded-4"/>
+                      className="img-fluid rounded-4" />
                   </div>
                   <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
                     <h3>Mobile Web Integration</h3>

@@ -8,6 +8,12 @@ const UiUx = () => {
   useEffect(() => {
     document.title = "UIUX | Zorvixe";
   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (window.AOS) {
+      window.AOS.init({ duration: 800 });
+    }
+  }, []);
   // Tab data
   const tabs = [
     {

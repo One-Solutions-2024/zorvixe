@@ -13,6 +13,7 @@ const AboutPage = () => {
   useEffect(() => {
     setMounted(true)
   }, [])
+  
 
   const tabs = [
     {
