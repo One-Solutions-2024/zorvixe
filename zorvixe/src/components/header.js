@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Monitor, Megaphone, PenTool, TrendingUp, Cloud, Smartphone, ChevronDown, X, Menu } from "lucide-react";
+import { Monitor, Megaphone, PenTool, TrendingUp, Cloud, Smartphone, ChevronDown, X, Menu } from 'lucide-react';
 
 const Header = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -341,7 +341,6 @@ const Header = () => {
         .sidebar-logo {
           height: 30px;
         }
-        
         .sidebar-close {
           background: none;
           border: none;
@@ -498,9 +497,9 @@ const Header = () => {
                         {services.map((service) => {
                           const IconComponent = service.icon;
                           return (
-                            <Link 
-                              key={service.name} 
-                              to={service.href} 
+                            <Link
+                              key={service.name}
+                              to={service.href}
                               className="service-item_navbar"
                               onClick={() => setServicesDropdownOpen(false)}
                             >
@@ -558,14 +557,14 @@ const Header = () => {
                 alt="Zorvixe Logo"
                 className="sidebar-logo"
               />
+
               <button
                 className="sidebar-close"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                <X size={24} />
+                onClick={() => setMobileNavOpen(false)}>
+                < X size={24} />
               </button>
             </div>
-            
+
             <div className="sidebar-body">
               <ul className="sidebar-nav">
                 <li className="sidebar-nav-item">
@@ -607,9 +606,9 @@ const Header = () => {
               </ul>
             </div>
           </div>
-          
+
           {/* Overlay for mobile sidebar */}
-          <div 
+          <div
             className={`sidebar-overlay ${mobileNavOpen ? 'open' : ''}`}
             onClick={() => setMobileNavOpen(false)}
           />
@@ -619,7 +618,7 @@ const Header = () => {
             <div className="mobile-services-content">
               <div className="modal-header">
                 <h3>Our Services</h3>
-                <button 
+                <button
                   className="close-btn"
                   onClick={() => setMobileServicesOpen(false)}
                 >
@@ -630,9 +629,9 @@ const Header = () => {
                 {services.map((service) => {
                   const IconComponent = service.icon;
                   return (
-                    <Link 
-                      key={service.name} 
-                      to={service.href} 
+                    <Link
+                      key={service.name}
+                      to={service.href}
                       className="mobile-service-item_navbar"
                       onClick={() => {
                         setMobileServicesOpen(false);
