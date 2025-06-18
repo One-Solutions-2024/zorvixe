@@ -133,6 +133,8 @@ const Header = () => {
           transition: all 0.3s ease;
           border: 1px solid transparent;
         }
+
+
         .service-item_navbar:hover {
           background: #f8f9fa;
           border-color: #5d57f4;
@@ -301,6 +303,11 @@ const Header = () => {
           border: none;
           color: #333;
           cursor: pointer;
+        }
+
+        /* Update offcanvas close button */
+        .offcanvas .close-btn {
+          display: none;
         }
         
         @media (max-width: 1199px) {
