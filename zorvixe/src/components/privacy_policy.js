@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 const PrivacyPolicy = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -7,13 +6,12 @@ const PrivacyPolicy = () => {
       window.AOS.init({ duration: 800 });
     }
   }, []);
+      useEffect(() => {
+        document.title = "Privacy Policy | Zorvixe";
+    }, []);
 
   return (
     <section id="privacy-policy" className="hero section">
-      <Helmet>
-        <title>Privacy Policy | Zorvixe</title>
-        <meta name="description" content="Read our Privacy Policy for using Zorvixe services and website." />
-      </Helmet>
       <div className="container" data-aos="fade-up" data-aos-delay="100">
         <div className="container">
           <div className="row card p-4">
@@ -49,7 +47,7 @@ const PrivacyPolicy = () => {
                     <li key={index}>
                       <p><strong>{item.term}</strong> {item.definition}
                         {item.link && (
-                          <a href={item.link} rel="external nofollow noopener" target="_blank">
+                          <a href={item.link} rel="noreferrer" target="_blank">
                             {item.link}
                           </a>
                         )}

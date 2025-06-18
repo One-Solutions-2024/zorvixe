@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 
 const TermsAndConditions = () => {
     useEffect(() => {
@@ -8,14 +7,13 @@ const TermsAndConditions = () => {
             window.AOS.init({ duration: 800 });
         }
     }, []);
+    useEffect(() => {
+        document.title = "Terms and Conditions | Zorvixe";
+    }, []);
+
 
     return (
         <div className="terms-page" style={{ marginTop: '50px' }}>
-            <Helmet>
-                <title>Terms and Conditions | Zorvixe</title>
-                <meta name="description" content="Read our terms and conditions for using Zorvixe services and website." />
-            </Helmet>
-
             <section className="hero-section">
                 <div className="container" data-aos="fade-up" data-aos-delay="100">
                     <div className="container">

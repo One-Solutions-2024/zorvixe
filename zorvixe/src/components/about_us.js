@@ -13,7 +13,7 @@ const AboutPage = () => {
   useEffect(() => {
     setMounted(true)
   }, [])
-  
+
 
   const tabs = [
     {
@@ -74,91 +74,6 @@ const AboutPage = () => {
 
   return (
     <>
-      <style jsx>{`
-        .hero-gradient {
-          background: linear-gradient(135deg, #1e293b 0%, #1e40af 50%, #4338ca 100%);
-        }
-        .text-gradient {
-          background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-        .text-gradient-blue {
-          background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-        .text-blue {
-          border-radius: 5px;
-        }
-        .btn-gradient {
-          background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
-          border: none;
-          color: #000;
-          font-weight: 600;
-          transition: all 0.3s ease;
-        }
-        .btn-gradient:hover {
-          background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
-          transform: translateY(-2px);
-          box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
-          color: #000;
-        }
-        .btn-blue {
-          background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-          border: none;
-          color: white;
-          font-weight: 600;
-          transition: all 0.3s ease;
-        }
-        .btn-blue:hover {
-          background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-          transform: translateY(-2px);
-          box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-          color: white;
-        }
-        .floating-element {
-          animation: float 6s ease-in-out infinite;
-        }
-        .floating-element:nth-child(2) {
-          animation-delay: -2s;
-        }
-        .floating-element:nth-child(3) {
-          animation-delay: -4s;
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        .pattern-bg {
-          background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0);
-          background-size: 20px 20px;
-        }
-        .glass-effect {
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .tab-button {
-          transition: all 0.3s ease;
-          border: 2px solid transparent;
-        }
-        .tab-button:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-          color: #000;
-        }
-        .tab-button.active {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-        .cta-gradient {
-          background: linear-gradient(135deg, #1e293b 0%, #1e40af 50%, #4338ca 100%);
-        }
-      `}</style>
-
       <div className="min-h-100 bg-light">
         {/* Hero Section */}
         <section className="hero-gradient text-white position-relative overflow-hidden">
