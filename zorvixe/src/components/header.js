@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Monitor, Megaphone, PenTool, TrendingUp, Cloud, Smartphone, ChevronDown, X } from "lucide-react"
+import { Monitor, Megaphone, PenTool, TrendingUp, Cloud, Smartphone, ChevronDown, X, Menu } from "lucide-react";
 
 const Header = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -29,9 +29,8 @@ const Header = () => {
     const handleClickOutside = (e) => {
       if (
         mobileNavOpen &&
-        !e.target.closest('#navmenu') &&
-        !e.target.closest('.mobile-nav-toggle') &&
-        !e.target.closest('.offcanvas')
+        !e.target.closest('#mobile-sidebar') &&
+        !e.target.closest('.mobile-nav-toggle')
       ) {
         setMobileNavOpen(false);
       }
@@ -133,8 +132,6 @@ const Header = () => {
           transition: all 0.3s ease;
           border: 1px solid transparent;
         }
-
-
         .service-item_navbar:hover {
           background: #f8f9fa;
           border-color: #5d57f4;
@@ -240,6 +237,9 @@ const Header = () => {
           color: #666;
           cursor: pointer;
           padding: 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         .mobile-services-grid {
           display: grid;
@@ -298,16 +298,127 @@ const Header = () => {
           line-height: 1.3;
         }
 
-        .mobile-nav-toggle{
+        .mobile-nav-toggle {
           background: transparent;
           border: none;
           color: #333;
           cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.5rem;
+          z-index: 1001;
         }
-
-        /* Update offcanvas close button */
-        .offcanvas .close-btn {
-          display: none;
+        
+        /* Mobile Sidebar Styles */
+        .mobile-sidebar {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 320px;
+          max-width: 90%;
+          height: 100vh;
+          background: white;
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+          transition: right 0.3s ease-in-out;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .mobile-sidebar.open {
+          right: 0;
+        }
+        
+        .sidebar-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1.5rem 1rem;
+          border-bottom: 1px solid #eee;
+        }
+        
+        .sidebar-logo {
+          height: 30px;
+        }
+        
+        .sidebar-close {
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: #333;
+        }
+        
+        .sidebar-body {
+          padding: 1rem;
+          overflow-y: auto;
+          flex-grow: 1;
+        }
+        
+        .sidebar-nav {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .sidebar-nav-item {
+          margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-nav-link {
+          display: block;
+          padding: 0.75rem 1rem;
+          border-radius: 8px;
+          text-decoration: none;
+          color: #333;
+          font-weight: 500;
+          transition: all 0.2s ease;
+        }
+        
+        .sidebar-nav-link:hover,
+        .sidebar-nav-link.active {
+          background: #f0f0ff;
+          color: #5d57f4;
+        }
+        
+        .sidebar-services-btn {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          padding: 0.75rem 1rem;
+          border-radius: 8px;
+          background: none;
+          border: none;
+          text-align: left;
+          color: #333;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        
+        .sidebar-services-btn:hover,
+        .sidebar-services-btn.active {
+          background: #f0f0ff;
+          color: #5d57f4;
+        }
+        
+        .sidebar-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 999;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+        }
+        
+        .sidebar-overlay.open {
+          opacity: 1;
+          visibility: visible;
         }
         
         @media (max-width: 1199px) {
@@ -433,66 +544,61 @@ const Header = () => {
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
           >
             {mobileNavOpen ? (
-              <span className="bi bi-x"></span>
+              <X size={24} />
             ) : (
-              <span className="bi bi-list"></span>
+              <Menu size={24} />
             )}
           </button>
 
-          {/* Offcanvas Bottom Menu for Mobile */}
-          <div
-            className={`offcanvas offcanvas-bottom auto-height ${mobileNavOpen ? 'show' : ''}`}
-            tabIndex="-1"
-            style={{ visibility: mobileNavOpen ? 'visible' : 'hidden' }}
-          >
-            <div className="offcanvas-header">
+          {/* Mobile Sidebar */}
+          <div className={`mobile-sidebar ${mobileNavOpen ? 'open' : ''}`} id="mobile-sidebar">
+            <div className="sidebar-header">
               <img
                 src="/assets/img/zorvixe_logo.png"
                 alt="Zorvixe Logo"
-                style={{ height: '30px' }}
+                className="sidebar-logo"
               />
               <button
-                type="button"
-                className="btn-close"
+                className="sidebar-close"
                 onClick={() => setMobileNavOpen(false)}
-              ></button>
+              >
+                <X size={24} />
+              </button>
             </div>
-            <div className="offcanvas-body text-center">
-              <ul className="nav flex-column">
-                <li className="nav-item py-2">
+            
+            <div className="sidebar-body">
+              <ul className="sidebar-nav">
+                <li className="sidebar-nav-item">
                   <Link
                     to="/"
-                    className={`nav-link ${isActive('/') ? 'active fw-bold' : ''}`}
+                    className={`sidebar-nav-link ${isActive('/') ? 'active' : ''}`}
                     onClick={() => setMobileNavOpen(false)}
                   >
                     Home
                   </Link>
                 </li>
-                <li className="nav-item py-2">
+                <li className="sidebar-nav-item">
                   <Link
                     to="/about_us"
-                    className={`nav-link ${isActive('/about_us') ? 'active fw-bold' : ''}`}
+                    className={`sidebar-nav-link ${isActive('/about_us') ? 'active' : ''}`}
                     onClick={() => setMobileNavOpen(false)}
                   >
                     About
                   </Link>
                 </li>
-                <li className="nav-item py-2">
+                <li className="sidebar-nav-item">
                   <button
-                    className={`nav-link d-flex align-items-center justify-content-center mx-auto ${isActive("/services") ? 'active fw-bold' : ''}`}
-                    onClick={() => {
-                      setMobileServicesOpen(true);
-                    }}
-                    style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                    className={`sidebar-services-btn ${isActive("/services") ? 'active' : ''}`}
+                    onClick={() => setMobileServicesOpen(true)}
                   >
-                    Services
-                    <ChevronDown size={16} className="ms-1" />
+                    <span>Services</span>
+                    <ChevronDown size={16} />
                   </button>
                 </li>
-                <li className="nav-item py-2">
+                <li className="sidebar-nav-item">
                   <Link
                     to="/contact_us"
-                    className={`nav-link ${isActive('/contact_us') ? 'active fw-bold' : ''}`}
+                    className={`sidebar-nav-link ${isActive('/contact_us') ? 'active' : ''}`}
                     onClick={() => setMobileNavOpen(false)}
                   >
                     Contact
@@ -501,6 +607,12 @@ const Header = () => {
               </ul>
             </div>
           </div>
+          
+          {/* Overlay for mobile sidebar */}
+          <div 
+            className={`sidebar-overlay ${mobileNavOpen ? 'open' : ''}`}
+            onClick={() => setMobileNavOpen(false)}
+          />
 
           {/* Mobile Services Popup Modal */}
           <div className={`mobile-services-modal ${mobileServicesOpen ? 'show' : ''}`}>
