@@ -71,6 +71,7 @@ const Header = () => {
 
   return (
     <>
+      
       <header id="header" className={`header fixed-top ${scrolled ? 'scrolled' : ''}`}>
         <div className="container position-relative d-flex align-items-center justify-content-between">
           {/* Logo */}
@@ -143,29 +144,36 @@ const Header = () => {
             Get Started
           </Link>
 
-
-          {/* Mobile Nav Toggle */}
+          {/* Fixed Mobile Nav Toggle */}
           <button
             className="mobile-nav-toggle d-xl-none"
-            onClick={() => setMobileNavOpen(!mobileNavOpen)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setMobileNavOpen(!mobileNavOpen);
+            }}
           >
-            {mobileNavOpen ? <div className='close-icon-bg'>
-              <X className='close-btn' />
-            </div> : <Menu className='menu-icon' />}
+            <div className="icon-container">
+              {mobileNavOpen ? <X  size={24} /> : <Menu size={24} />}
+            </div>
           </button>
         </div>
-
+        
         {/* Mobile Sidebar */}
         <div className={`mobile-sidebar ${mobileNavOpen ? 'open' : ''}`}>
           <div className="sidebar-header">
             <img src="/assets/img/zorvixe_logo.png" alt="Zorvixe Logo" className="sidebar-logo" />
+            <div className='close-icon-bg'>
+              <button className="close-btn" onClick={() => setMobileNavOpen(false)}>
+              <X size={15} />
+            </button>
+            </div>
           </div>
-
+          
           <div className="sidebar-body">
             <ul className="sidebar-nav">
               <li className="sidebar-nav-item">
-                <Link
-                  to="/"
+                <Link 
+                  to="/" 
                   className={`sidebar-nav-link ${isActive('/') ? 'active' : ''}`}
                   onClick={() => setMobileNavOpen(false)}
                 >
@@ -173,8 +181,8 @@ const Header = () => {
                 </Link>
               </li>
               <li className="sidebar-nav-item">
-                <Link
-                  to="/about_us"
+                <Link 
+                  to="/about_us" 
                   className={`sidebar-nav-link ${isActive('/about_us') ? 'active' : ''}`}
                   onClick={() => setMobileNavOpen(false)}
                 >
@@ -190,8 +198,8 @@ const Header = () => {
                 </button>
               </li>
               <li className="sidebar-nav-item">
-                <Link
-                  to="/contact_us"
+                <Link 
+                  to="/contact_us" 
                   className={`sidebar-nav-link ${isActive('/contact_us') ? 'active' : ''}`}
                   onClick={() => setMobileNavOpen(false)}
                 >
@@ -199,8 +207,9 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
-            <Link
-              to="/contact_us"
+            
+            <Link 
+              to="/contact_us" 
               className="btn-getstarted mobile-getstarted"
               onClick={() => setMobileNavOpen(false)}
             >
@@ -208,13 +217,13 @@ const Header = () => {
             </Link>
           </div>
         </div>
-
+        
         {/* Mobile Sidebar Overlay */}
-        <div
-          className={`sidebar-overlay ${mobileNavOpen ? 'open' : ''}`}
+        <div 
+          className={`sidebar-overlay ${mobileNavOpen ? 'open' : ''}`} 
           onClick={() => setMobileNavOpen(false)}
         />
-
+        
         {/* Mobile Services Modal */}
         <div className={`mobile-services-modal ${mobileServicesOpen ? 'show' : ''}`}>
           <div className="mobile-services-content">
