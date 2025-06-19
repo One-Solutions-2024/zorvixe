@@ -89,8 +89,8 @@ const Header = () => {
               </li>
               <li className="services-dropdown">
                 <Link
-                  to="/services"
-                  className={isActive("/services") ? "active" : ""}
+                  to="#"
+                  className={isActive("#") ? "active" : ""}
                   onMouseEnter={() => setServicesDropdownOpen(true)}
                   onMouseLeave={() => setServicesDropdownOpen(false)}
                 >
