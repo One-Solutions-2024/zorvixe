@@ -71,7 +71,6 @@ const Header = () => {
 
   return (
     <>
-      
       <header id="header" className={`header fixed-top ${scrolled ? 'scrolled' : ''}`}>
         <div className="container position-relative d-flex align-items-center justify-content-between">
           {/* Logo */}
@@ -144,36 +143,41 @@ const Header = () => {
             Get Started
           </Link>
 
-          {/* Fixed Mobile Nav Toggle */}
+          {/* Fixed Mobile Nav Toggle - Now positioned on the right */}
           <button
             className="mobile-nav-toggle d-xl-none"
             onClick={(e) => {
               e.stopPropagation();
               setMobileNavOpen(!mobileNavOpen);
             }}
+            aria-label={mobileNavOpen ? "Close menu" : "Open menu"}
           >
             <div className="icon-container">
-              {mobileNavOpen ? <X  size={24} /> : <Menu size={24} />}
+              {mobileNavOpen ?  <div className='close-icon-bg'>
+              <button 
+                className="close-btn" 
+                onClick={() => setMobileNavOpen(false)}
+                aria-label="Close menu"
+              >
+                <X size={10} />
+              </button>
+            </div> : <Menu className='menu-icon' size={24} />}
             </div>
           </button>
         </div>
-        
+
         {/* Mobile Sidebar */}
         <div className={`mobile-sidebar ${mobileNavOpen ? 'open' : ''}`}>
           <div className="sidebar-header">
             <img src="/assets/img/zorvixe_logo.png" alt="Zorvixe Logo" className="sidebar-logo" />
-            <div className='close-icon-bg'>
-              <button className="close-btn" onClick={() => setMobileNavOpen(false)}>
-              <X size={15} />
-            </button>
-            </div>
+           
           </div>
-          
+
           <div className="sidebar-body">
             <ul className="sidebar-nav">
               <li className="sidebar-nav-item">
-                <Link 
-                  to="/" 
+                <Link
+                  to="/"
                   className={`sidebar-nav-link ${isActive('/') ? 'active' : ''}`}
                   onClick={() => setMobileNavOpen(false)}
                 >
@@ -181,8 +185,8 @@ const Header = () => {
                 </Link>
               </li>
               <li className="sidebar-nav-item">
-                <Link 
-                  to="/about_us" 
+                <Link
+                  to="/about_us"
                   className={`sidebar-nav-link ${isActive('/about_us') ? 'active' : ''}`}
                   onClick={() => setMobileNavOpen(false)}
                 >
@@ -193,13 +197,14 @@ const Header = () => {
                 <button
                   className={`sidebar-services-btn ${isActive("/services") ? 'active' : ''}`}
                   onClick={() => setMobileServicesOpen(true)}
+                  aria-expanded={mobileServicesOpen}
                 >
                   Services <ChevronDown size={16} className="ms-1" />
                 </button>
               </li>
               <li className="sidebar-nav-item">
-                <Link 
-                  to="/contact_us" 
+                <Link
+                  to="/contact_us"
                   className={`sidebar-nav-link ${isActive('/contact_us') ? 'active' : ''}`}
                   onClick={() => setMobileNavOpen(false)}
                 >
@@ -207,9 +212,9 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
-            
-            <Link 
-              to="/contact_us" 
+
+            <Link
+              to="/contact_us"
               className="btn-getstarted mobile-getstarted"
               onClick={() => setMobileNavOpen(false)}
             >
@@ -217,20 +222,24 @@ const Header = () => {
             </Link>
           </div>
         </div>
-        
+
         {/* Mobile Sidebar Overlay */}
-        <div 
-          className={`sidebar-overlay ${mobileNavOpen ? 'open' : ''}`} 
+        <div
+          className={`sidebar-overlay ${mobileNavOpen ? 'open' : ''}`}
           onClick={() => setMobileNavOpen(false)}
         />
-        
+
         {/* Mobile Services Modal */}
         <div className={`mobile-services-modal ${mobileServicesOpen ? 'show' : ''}`}>
           <div className="mobile-services-content">
             <div className="modal-header">
               <h3>Our Services</h3>
-              <button className="close-btn" onClick={() => setMobileServicesOpen(false)}>
-                <X size={24} />
+              <button 
+                className="close-btn" 
+                onClick={() => setMobileServicesOpen(false)}
+                aria-label="Close services menu"
+              >
+                <X size={10} />
               </button>
             </div>
             <div className="mobile-services-grid">
