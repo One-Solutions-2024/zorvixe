@@ -1,7 +1,7 @@
 // src/components/MaintenancePage.jsx
 import React, { useEffect } from 'react';
 
-const MaintenancePage = () => {
+const Maintenance = () => {
   // Set page title on mount
   useEffect(() => {
     document.title = "Maintenance | Zorvixe";
@@ -33,4 +33,4 @@ const MaintenancePage = () => {
   );
 };
 
-export default MaintenancePage;
+export default Maintenance;
