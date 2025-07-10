@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Tab, Nav, Row, Col } from 'react-bootstrap';
+import { Tab, Nav} from 'react-bootstrap';
 
 const DigitalMarketingService = () => {
 
@@ -292,7 +292,7 @@ const DigitalMarketingService = () => {
           <div className="service-cta mt-5 text-center" data-aos="zoom-in">
             <h3>Ready to accelerate your digital growth?</h3>
             <p>Schedule your free marketing audit and discover how we can help you achieve your business goals.</p>
-            <a href="#contact" className="btn-service">
+            <a href="/contact_us" className="btn-service">
               Request Proposal <i className="bi bi-arrow-right"></i>
             </a>
           </div>

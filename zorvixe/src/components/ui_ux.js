@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
 
 const UiUx = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState('tab1');
+  
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
+  
   useEffect(() => {
     document.title = "UIUX | Zorvixe";
-  }, []);
-  useEffect(() => {
     window.scrollTo(0, 0);
     if (window.AOS) {
       window.AOS.init({ duration: 800 });
     }
   }, []);
+
   // Tab data
   const tabs = [
     {
-      id: 1,
+      id: 'tab1',
       title: "UX Research",
       icon: "bi-people",
       image: "ui_ux_2.jpg",
@@ -29,7 +31,7 @@ const UiUx = () => {
       ]
     },
     {
-      id: 2,
+      id: 'tab2',
       title: "UI Design",
       icon: "bi-layout-text-window",
       image: "ui_ux_3.jpg",
@@ -41,7 +43,7 @@ const UiUx = () => {
       ]
     },
     {
-      id: 3,
+      id: 'tab3',
       title: "Mobile UX",
       icon: "bi-phone",
       image: "ui_ux_4.jpg",
@@ -53,7 +55,7 @@ const UiUx = () => {
       ]
     },
     {
-      id: 4,
+      id: 'tab4',
       title: "Prototyping",
       icon: "bi-pencil-square",
       image: "ui_ux_5.jpg",
@@ -94,10 +96,10 @@ const UiUx = () => {
 
       {/* Service Details Section */}
       <section id="service-details" className="service-details section">
-        <div className="container">
+        <div className="container" data-aos="fade-up" data-aos-delay="100">
           <div className="row gy-5">
             <div className="col-lg-6">
-              <div className="service-main-image">
+              <div className="service-main-image" data-aos="zoom-in" data-aos-delay="200">
                 <img
                   src="/assets/img/services/ui_ux_1.jpg"
                   alt="UI/UX Design Process"
@@ -112,21 +114,21 @@ const UiUx = () => {
 
             <div className="col-lg-6">
               <div className="service-main-content">
-                <div className="section-header">
+                <div className="section-header" data-aos="fade-up">
                   <span className="section-subtitle">Human-Centered Design</span>
                   <h2>Comprehensive UI/UX Solutions</h2>
                 </div>
-                <p className="lead">
+                <p className="lead" data-aos="fade-up" data-aos-delay="100">
                   In today's digital landscape, user experience is the competitive differentiator. Our design
                   services create intuitive, beautiful interfaces that drive engagement and business results.
                 </p>
-                <p>
+                <p data-aos="fade-up" data-aos-delay="200">
                   We follow a research-driven design process that puts users at the center. From initial
                   discovery to final implementation, we craft experiences that solve real user problems while
                   achieving business objectives.
                 </p>
 
-                <ul className="service-benefits">
+                <ul className="service-benefits" data-aos="fade-up" data-aos-delay="300">
                   <li><i className="bi bi-check2-circle"></i> User research and persona development</li>
                   <li><i className="bi bi-check2-circle"></i> Information architecture and wireframing</li>
                   <li><i className="bi bi-check2-circle"></i> Interactive prototyping and testing</li>
@@ -137,55 +139,61 @@ const UiUx = () => {
             </div>
           </div>
 
-          <div className="service-tabs mt-5">
-            <Tabs selectedIndex={activeTab} onSelect={index => setActiveTab(index)}>
-              <TabList className="nav nav-tabs" id="service-details-tabs">
-                {tabs.map(tab => (
-                  <Tab key={tab.id} className="nav-item">
-                    <button className="nav-link">
-                      <i className={`bi ${tab.icon}`}></i> {tab.title}
-                    </button>
-                  </Tab>
-                ))}
-              </TabList>
+          {/* Tabs Section */}
+          <div className="service-tabs mt-5" data-aos="fade-up">
+            <ul className="nav nav-tabs" id="service-details-tabs" role="tablist">
+              {tabs.map(tab => (
+                <li key={tab.id} className="nav-item" role="presentation">
+                  <button
+                    className={`nav-link ${activeTab === tab.id ? 'active' : ''}`}
+                    onClick={() => handleTabChange(tab.id)}
+                  >
+                    <i className={`bi ${tab.icon}`}></i> {tab.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
 
-              <div className="tab-content" id="service-details-tabs-content">
-                {tabs.map(tab => (
-                  <TabPanel key={tab.id}>
-                    <div className="row align-items-center">
-                      <div className="col-lg-5">
-                        <img
-                          src={`/assets/img/services/${tab.image}`}
-                          alt={`${tab.title} Process`}
-                          className="img-fluid rounded-4"
-                        />
-                      </div>
-                      <div className="col-lg-7">
-                        <h3>{tab.heading}</h3>
-                        <p>{tab.description}</p>
-                        <div className="row gy-4 mt-3">
-                          {tab.features.map((feature, idx) => (
-                            <div key={idx} className="col-md-6">
-                              <div className="feature-item">
-                                <i className={`bi ${feature.icon}`}></i>
-                                <h4>{feature.title}</h4>
-                                <p>{feature.description}</p>
-                              </div>
+            <div className="tab-content" id="service-details-tabs-content">
+              {tabs.map(tab => (
+                <div 
+                  key={tab.id} 
+                  className={`tab-pane fade ${activeTab === tab.id ? 'show active' : ''}`}
+                >
+                  <div className="row align-items-center">
+                    <div className="col-lg-5" data-aos="fade-right" data-aos-delay="100">
+                      <img 
+                        src={`/assets/img/services/${tab.image}`} 
+                        alt={`${tab.title} Process`} 
+                        className="img-fluid rounded-4"
+                      />
+                    </div>
+                    <div className="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+                      <h3>{tab.heading}</h3>
+                      <p>{tab.description}</p>
+                      <div className="row gy-4 mt-3">
+                        {tab.features.map((feature, idx) => (
+                          <div key={idx} className="col-md-6">
+                            <div className="feature-item">
+                              <i className={`bi ${feature.icon}`}></i>
+                              <h4>{feature.title}</h4>
+                              <p>{feature.description}</p>
                             </div>
-                          ))}
-                        </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                  </TabPanel>
-                ))}
-              </div>
-            </Tabs>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="service-cta mt-5 text-center">
+          {/* CTA Section */}
+          <div className="service-cta mt-5 text-center" data-aos="zoom-in">
             <h3>Ready to elevate your user experience?</h3>
             <p>Schedule your free design consultation and discover how we can transform your digital products.</p>
-            <Link to="/contact" className="btn-service">
+            <Link to="/contact_us" className="btn-service">
               Request Proposal <i className="bi bi-arrow-right"></i>
             </Link>
           </div>

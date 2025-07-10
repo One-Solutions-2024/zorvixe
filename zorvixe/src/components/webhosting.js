@@ -254,7 +254,7 @@ const WebHosting = () => {
           <div className="service-cta mt-5 text-center" data-aos="zoom-in">
             <h3>Ready to find your perfect hosting solution?</h3>
             <p>Get a free hosting consultation and migration service when you sign up today.</p>
-            <a href="#" className="btn-service">View Hosting Plans <i className="bi bi-arrow-right"></i></a>
+            <a href="/contact_us" className="btn-service">View Hosting Plans <i className="bi bi-arrow-right"></i></a>
           </div>
         </div>
       </section>

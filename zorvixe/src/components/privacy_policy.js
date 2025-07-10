@@ -208,7 +208,7 @@ const PrivacyPolicy = () => {
                 <h4>Contact Us</h4>
                 <p>If you have any questions about this Privacy Policy, You can contact us:</p>
                 <ul>
-                  <li>By email: <a href="mailto:info@Zorvixe.com">info@Zorvixe.com</a></li>
+                  <li>By email: <a href="mailto:zorvixe@gmail.com">zorvixe@gmail.com</a></li>
                 </ul>
               </div>
             </div>

@@ -214,7 +214,7 @@ const TermsAndConditions = () => {
                                     <ul className="list-unstyled">
                                         <li className="d-flex align-items-center">
                                             <i className="bi bi-envelope-fill me-2 text-primary"></i>
-                                            <span>By email: <a href="mailto:info@zorvixe.com" className="text-decoration-none text-primary ms-1">info@zorvixe.com</a></span>
+                                            <span>By email: <a href="mailto:zorvixe@gmail.com" className="text-decoration-none text-primary ms-1">zorvixe@gmail.com</a></span>
                                         </li>
                                     </ul>
                                 </div>

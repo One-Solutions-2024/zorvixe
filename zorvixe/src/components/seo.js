@@ -299,7 +299,7 @@ const SEOServicePage = () => {
           <div className="service-cta mt-5 text-center" data-aos="zoom-in">
             <h3>Ready to climb to the top of Google?</h3>
             <p>Request a free SEO audit and find out how we can elevate your rankings and traffic.</p>
-            <a href="#contact" className="btn-service">Request SEO Proposal <i className="bi bi-arrow-right"></i></a>
+            <a href="/contact_us" className="btn-service">Request SEO Proposal <i className="bi bi-arrow-right"></i></a>
           </div>
         </div>
       </section>

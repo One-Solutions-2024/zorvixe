@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const MobileAppSolutions = () => {
   useEffect(() => {
     document.title = "Mobile App Solutions | Zorvixe";
   }, []);
-   useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
     if (window.AOS) {
       window.AOS.init({ duration: 800 });
@@ -31,7 +32,7 @@ const MobileAppSolutions = () => {
         <nav className="breadcrumbs">
           <div className="container">
             <ol>
-              <li><a href="">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li className="current">Mobile App Solutions</li>
             </ol>
           </div>
@@ -198,9 +199,9 @@ const MobileAppSolutions = () => {
           <div className="service-cta mt-5 text-center" data-aos="zoom-in">
             <h3>Ready to build your next successful mobile app?</h3>
             <p>Schedule your free consultation and discover how we can bring your app idea to life.</p>
-            <a href="#" className="btn-service">
+            <Link to="/contact_us" className="btn-service">
               Request Proposal <i className="bi bi-arrow-right"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

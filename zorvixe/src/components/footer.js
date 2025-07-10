@@ -52,20 +52,23 @@ const Footer = () => {
             <div className="footer-contact">
               <p>Q3X4+R7Q, Sree Rama Nagar, Kurnool, Andhra Pradesh 518002</p>
               <p className="mt-3"><strong>Phone:</strong> <span>+91 8328590444</span></p>
-              <p><strong>Email:</strong> <span>info@zorvixe.com</span></p>
+              <p><strong>Email:</strong> <span>zorvixe@gmail.com</span></p>
             </div>
             <div className="social-links d-flex mt-4">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://x.com/zorvixe_tech" target="_blank" rel="noopener noreferrer">
                 <i className="bi bi-twitter-x"></i>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/profile.php?id=61577972005358" target="_blank" rel="noopener noreferrer">
                 <i className="bi bi-facebook"></i>
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/zorvixe_technologies/" target="_blank" rel="noopener noreferrer">
                 <i className="bi bi-instagram"></i>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/107967394/" target="_blank" rel="noopener noreferrer">
                 <i className="bi bi-linkedin"></i>
+              </a>
+               <a href="https://whatsapp.com/channel/0029VbApYIiElagpz0IKPm11" target="_blank" rel="noopener noreferrer">
+                <i className="bi bi-whatsapp"></i>
               </a>
             </div>
           </div>
