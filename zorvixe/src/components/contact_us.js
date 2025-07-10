@@ -183,7 +183,7 @@ const Contact = () => {
               <h3>Contact Number</h3>
               <p>
                 Mobile: +91 8328590444<br />
-                Email: info@zorvixe.com
+                Email: zorvixe@gmail.com
               </p>
             </div>
           </div>

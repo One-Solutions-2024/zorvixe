@@ -15,7 +15,7 @@ import {
 const Header = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileServicesExpanded, setMobileServicesExpanded] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -31,7 +31,7 @@ const Header = () => {
   // Close mobile nav on route change
   useEffect(() => {
     setMobileNavOpen(false);
-    setMobileServicesOpen(false);
+    setMobileServicesExpanded(false);
   }, [location.pathname]);
 
   // Close mobile nav on outside click
@@ -47,7 +47,7 @@ const Header = () => {
 
   // Prevent body scrolling when mobile nav is open
   useEffect(() => {
-    if (mobileNavOpen || mobileServicesOpen) {
+    if (mobileNavOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
@@ -56,7 +56,7 @@ const Header = () => {
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [mobileNavOpen, mobileServicesOpen]);
+  }, [mobileNavOpen]);
 
   const isActive = (path) => location.pathname === path;
 
@@ -143,7 +143,7 @@ const Header = () => {
             Get Started
           </Link>
 
-          {/* Fixed Mobile Nav Toggle - Now positioned on the right */}
+          {/* Fixed Mobile Nav Toggle */}
           <button
             className="mobile-nav-toggle d-xl-none"
             onClick={(e) => {
@@ -153,15 +153,15 @@ const Header = () => {
             aria-label={mobileNavOpen ? "Close menu" : "Open menu"}
           >
             <div className="icon-container">
-              {mobileNavOpen ?  <div className='close-icon-bg'>
-              <button 
-                className="close-btn" 
-                onClick={() => setMobileNavOpen(false)}
-                aria-label="Close menu"
-              >
-                <X size={10} />
-              </button>
-            </div> : <Menu className='menu-icon' size={24} />}
+              {mobileNavOpen ? <div className='close-icon-bg'>
+                <button
+                  className="close-btn close-icon"
+                  onClick={() => setMobileNavOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <X size={10} />
+                </button>
+              </div> : <Menu className='menu-icon' size={24} />}
             </div>
           </button>
         </div>
@@ -170,7 +170,6 @@ const Header = () => {
         <div className={`mobile-sidebar ${mobileNavOpen ? 'open' : ''}`}>
           <div className="sidebar-header">
             <img src="/assets/img/zorvixe_logo.png" alt="Zorvixe Logo" className="sidebar-logo" />
-           
           </div>
 
           <div className="sidebar-body">
@@ -195,12 +194,38 @@ const Header = () => {
               </li>
               <li className="sidebar-nav-item">
                 <button
-                  className={`sidebar-services-btn ${isActive("/services") ? 'active' : ''}`}
-                  onClick={() => setMobileServicesOpen(true)}
-                  aria-expanded={mobileServicesOpen}
+                  className={`sidebar-services-btn ${mobileServicesExpanded ? 'expanded' : ''}`}
+                  onClick={() => setMobileServicesExpanded(!mobileServicesExpanded)}
+                  aria-expanded={mobileServicesExpanded}
                 >
-                  Services <ChevronDown size={16} className="ms-1" />
+                  Services <ChevronDown size={16} className={`chevron-icon ${mobileServicesExpanded ? 'rotate' : ''}`} />
                 </button>
+
+                {/* Services list - now inside the sidebar */}
+                <div className={`mobile-services-list ${mobileServicesExpanded ? 'expanded' : ''}`}>
+                  {services.map((service) => {
+                    const IconComponent = service.icon;
+                    return (
+                      <Link
+                        key={service.name}
+                        to={service.href}
+                        className="mobile-service-item_navbar"
+                        onClick={() => {
+                          setMobileServicesExpanded(false);
+                          setMobileNavOpen(false);
+                        }}
+                      >
+                        <div className="mobile-service-icon">
+                          <IconComponent size={20} />
+                        </div>
+                        <div className="mobile-service-info_navbar">
+                          <h4>{service.name}</h4>
+                          <p>{service.description}</p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
               </li>
               <li className="sidebar-nav-item">
                 <Link
@@ -228,46 +253,6 @@ const Header = () => {
           className={`sidebar-overlay ${mobileNavOpen ? 'open' : ''}`}
           onClick={() => setMobileNavOpen(false)}
         />
-
-        {/* Mobile Services Modal */}
-        <div className={`mobile-services-modal ${mobileServicesOpen ? 'show' : ''}`}>
-          <div className="mobile-services-content">
-            <div className="modal-header">
-              <h3>Our Services</h3>
-              <button 
-                className="close-btn" 
-                onClick={() => setMobileServicesOpen(false)}
-                aria-label="Close services menu"
-              >
-                <X size={10} />
-              </button>
-            </div>
-            <div className="mobile-services-grid">
-              {services.map((service) => {
-                const IconComponent = service.icon;
-                return (
-                  <Link
-                    key={service.name}
-                    to={service.href}
-                    className="mobile-service-item_navbar"
-                    onClick={() => {
-                      setMobileServicesOpen(false);
-                      setMobileNavOpen(false);
-                    }}
-                  >
-                    <div className="mobile-service-icon">
-                      <IconComponent size={20} />
-                    </div>
-                    <div className="mobile-service-info_navbar">
-                      <h4>{service.name}</h4>
-                      <p>{service.description}</p>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </div>
       </header>
     </>
   );
