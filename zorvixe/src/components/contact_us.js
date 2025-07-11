@@ -377,9 +377,9 @@ const Contact = () => {
       {/* Success Modal */}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
         <Modal.Header closeButton>
-          <Modal.Title><img src='/assets/img/zorvixe_logo.png' /></Modal.Title>
+          <Modal.Title><img className='contact_zorvixe_logo' src='/assets/img/zorvixe_logo.png' /></Modal.Title>
         </Modal.Header>
-        <Modal.Body className="text-center p-5">
+        <Modal.Body className="text-center p-1">
           <div className="mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
