@@ -28,6 +28,7 @@ const Contact = () => {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
+  
   useEffect(() => {
     document.title = "Contact Us | Zorvixe";
   }, []);
@@ -35,7 +36,6 @@ const Contact = () => {
   // Validate name field (only letters and spaces)
   const validateName = (e) => {
     const key = e.key;
-    // Allow letters, space, backspace, delete, tab, and arrow keys
     if (!/^[a-zA-Z\s]$/.test(key) &&
       key !== 'Backspace' &&
       key !== 'Delete' &&
@@ -68,7 +68,7 @@ const Contact = () => {
       return;
     }
 
-    // First digit validation: only 6, 7, 8, or 9
+    // First digit validation
     if (value.length === 0 && !/[6-9]/.test(key)) {
       e.preventDefault();
       setErrors(prev => ({ ...prev, phone: 'Phone number must start with 6-9' }));
@@ -130,8 +130,25 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await fetch('http://localhost:5000/api/contact/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Handle server validation errors
+        if (data.errors) {
+          setErrors(data.errors);
+        } else {
+          throw new Error(data.message || 'Failed to submit form');
+        }
+        return;
+      }
 
       // Clear form
       setFormData({
@@ -145,7 +162,7 @@ const Contact = () => {
       // Show success modal
       setShowModal(true);
     } catch (error) {
-      setFormError('There was an error sending your message. Please try again.');
+      setFormError(error.message || 'There was an error sending your message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -336,7 +353,8 @@ const Contact = () => {
                   </button>
                 </div>
               </form>
-              {/* Location Map - Full Width */}
+              
+              {/* Location Map */}
               <div className="col-12 mt-5">
                 <div className="container-fluid px-0">
                   <h4 className="text-dark fw-bold mb-3 text-center">Location Map</h4>
@@ -349,7 +367,6 @@ const Contact = () => {
                     loading="lazy"
                     title="Zorvixe"
                   ></iframe>
-
                 </div>
               </div>
             </div>
