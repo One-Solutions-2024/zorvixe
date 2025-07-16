@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   Monitor,
@@ -17,7 +17,9 @@ const Header = () => {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesExpanded, setMobileServicesExpanded] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [clickedServices, setClickedServices] = useState(false); // New state
   const location = useLocation();
+  const servicesRef = useRef(null); // Ref for services dropdown
 
   // Scroll shadow
   useEffect(() => {
@@ -32,6 +34,9 @@ const Header = () => {
   useEffect(() => {
     setMobileNavOpen(false);
     setMobileServicesExpanded(false);
+    // Also reset services dropdown states
+    setServicesDropdownOpen(false);
+    setClickedServices(false);
   }, [location.pathname]);
 
   // Close mobile nav on outside click
@@ -44,6 +49,19 @@ const Header = () => {
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
   }, [mobileNavOpen]);
+
+  // Close services dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (servicesDropdownOpen && servicesRef.current && !servicesRef.current.contains(e.target)) {
+        setServicesDropdownOpen(false);
+        setClickedServices(false);
+      }
+    };
+    
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [servicesDropdownOpen]);
 
   // Prevent body scrolling when mobile nav is open
   useEffect(() => {
@@ -87,19 +105,44 @@ const Header = () => {
               <li>
                 <Link to="/about_us" className={isActive('/about_us') ? 'active' : ''}>About</Link>
               </li>
-              <li className="services-dropdown">
+              <li 
+                className="services-dropdown" 
+                ref={servicesRef} // Attach ref here
+              >
                 <Link
                   to="#"
                   className={isActive("#") ? "active" : ""}
-                  onMouseEnter={() => setServicesDropdownOpen(true)}
-                  onMouseLeave={() => setServicesDropdownOpen(false)}
+                  onMouseEnter={() => {
+                    // Only open on hover if not already opened by click
+                    if (!clickedServices) {
+                      setServicesDropdownOpen(true);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    // Only close on hover if not opened by click
+                    if (!clickedServices) {
+                      setServicesDropdownOpen(false);
+                    }
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // Toggle dropdown when clicked
+                    const newState = !servicesDropdownOpen;
+                    setServicesDropdownOpen(newState);
+                    setClickedServices(newState);
+                  }}
                 >
                   Services <ChevronDown size={16} className="ms-1" />
                 </Link>
                 <div
                   className={`dropdown-menu ${servicesDropdownOpen ? "show" : ""}`}
                   onMouseEnter={() => setServicesDropdownOpen(true)}
-                  onMouseLeave={() => setServicesDropdownOpen(false)}
+                  onMouseLeave={() => {
+                    // Only close on hover leave if not opened by click
+                    if (!clickedServices) {
+                      setServicesDropdownOpen(false);
+                    }
+                  }}
                 >
                   <div className="services-grid">
                     <div>
@@ -112,7 +155,10 @@ const Header = () => {
                               key={service.name}
                               to={service.href}
                               className="service-item_navbar"
-                              onClick={() => setServicesDropdownOpen(false)}
+                              onClick={() => {
+                                setServicesDropdownOpen(false);
+                                setClickedServices(false);
+                              }}
                             >
                               <div className="service-icon">
                                 <IconComponent size={20} />
