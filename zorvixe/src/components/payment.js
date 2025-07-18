@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Building2, CreditCard, Upload, Check, Calendar, DollarSign, FileText, QrCode, Trash2 } from 'lucide-react';
 import './payment.css';
+import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
   const [file, setFile] = useState(null);
@@ -9,6 +10,7 @@ const Payment = () => {
   const [dragActive, setDragActive] = useState(false);
   const [referenceId, setReferenceId] = useState('');
   const fileInputRef = useRef(null);
+  const navigate = useNavigate();
 
   // Payment details (would normally come from props or context)
   const paymentDetails = {
@@ -115,11 +117,11 @@ const Payment = () => {
         setReferenceId(data.referenceId);
         setIsSubmitted(true);
       } else {
-        throw new Error(data.message || 'Failed to submit registration');
+        throw new Error('We’ve received your payment, but it’s still being verified. Please wait around 50 seconds before trying to upload your receipt again.');
       }
     } catch (error) {
-      console.error('Submission error:', error);
-      alert(`Error: ${error.message}`);
+      console.error('We’ve received your payment, but it’s still being verified. Please wait around 50 seconds before trying to upload your receipt again.');
+      alert('We’ve received your payment, but it’s still being verified. Please wait around 50 seconds before trying to upload your receipt again.');
     }
   };
 
@@ -145,9 +147,10 @@ const Payment = () => {
                 <li>Project kickoff within 24-48 hours</li>
               </ul>
             </div>
-            <button className="back-btn" onClick={() => window.location.reload()}>
-              Submit Another Payment
+            <button className="back-btn" onClick={() => navigate('/')}>
+              Go to Home
             </button>
+
           </div>
         </div>
       </div>
@@ -157,6 +160,9 @@ const Payment = () => {
   return (
     <div className="payment-container">
       {/* Header */}
+      <div className="header">
+        <img src="/assets/img/zorvixe_logo.png" alt="Zorvixe Logo" className="logo_payment" />
+      </div>
       <div className="header-section">
         <div className="header-content">
           <Building2 size={32} className="header-icon" />
@@ -384,7 +390,7 @@ const Payment = () => {
                 </div>
                 <div className="upload-success">
                   <Check size={16} />
-                  <span>Receipt uploaded to Cloudinary</span>
+                  <span>Receipt uploaded</span>
                 </div>
               </div>
             ) : (
@@ -399,7 +405,7 @@ const Payment = () => {
                   {imageLoading ? (
                     <div className="upload-loading">
                       <div className="loading-spinner"></div>
-                      <span>Uploading to Cloudinary...</span>
+                      <span>Uploading...</span>
                     </div>
                   ) : (
                     <>
