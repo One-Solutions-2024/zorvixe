@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 
+// Import your components
 import Contact from './components/contact_us';
 import NotFound from './components/notfound';
 import MobileAppSolutions from './components/mobile_app_solutions';
@@ -16,19 +17,28 @@ import UIUX from './components/ui_ux';
 import WebHosting from './components/webhosting';
 import WebDevelopment from './components/webdevelopment';
 import Maintenance from './components/maintainance';
-
+import Payment from './components/payment';
 import './App.css';
 
 function App() {
-   const MainLayout = () => (
+  // Layout with header and footer
+  const MainLayout = () => (
     <div className="App">
       <Header />
-      <Outlet />  {/* This renders the matched child route */}
+      <Outlet />  {/* Renders the matched child route */}
       <Footer />
     </div>
   );
+  
+  // Layout without header and footer
+  const MinimalLayout = () => (
+    <div className="App">
+      <Outlet />  {/* Renders the matched child route */}
+    </div>
+  );
+
   return (
-   <BrowserRouter>
+    <BrowserRouter>
       <Routes>
         {/* Routes with header/footer */}
         <Route element={<MainLayout />}>
@@ -44,7 +54,12 @@ function App() {
           <Route path="/services/web_hosting" element={<WebHosting />} />
           <Route path="/services/web_development" element={<WebDevelopment />} />
           <Route path="/services/ui_ux" element={<UIUX />} />
-          <Route path="/maintainance" element={<Maintenance />} />          
+          <Route path="/maintainance" element={<Maintenance />} />
+        </Route>
+        
+        {/* Routes without header/footer */}
+        <Route element={<MinimalLayout />}>
+          <Route path="/payment" element={<Payment />} />
         </Route>
         
         {/* Standalone route without layout */}
