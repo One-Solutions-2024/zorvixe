@@ -59,7 +59,7 @@ function App() {
         
         {/* Routes without header/footer */}
         <Route element={<MinimalLayout />}>
-          <Route path="/payment" element={<Payment />} />
+          <Route path="/sales/registration/payment/4vXcZpLmKjQ8aTyNfRbEoWg7HdUs29qT" element={<Payment />} />
         </Route>
         
         {/* Standalone route without layout */}
