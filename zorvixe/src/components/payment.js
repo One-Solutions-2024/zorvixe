@@ -333,7 +333,7 @@ const Payment = () => {
               <div className="qr-section">
                 <div className="qr-code">
                   <div className="qr-placeholder">
-                    <img src='assets/img/payment_qr.jpg' className='qr_code_image' alt="QR Code" />
+                    <img src='/assets/img/payment_qr.jpg' className='qr_code_image' alt="QR Code" />
                   </div>
                 </div>
                 <div className="qr-instructions">
