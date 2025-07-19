@@ -29,7 +29,7 @@ function App() {
       <Footer />
     </div>
   );
-  
+
   // Layout without header and footer
   const MinimalLayout = () => (
     <div className="App">
@@ -56,12 +56,14 @@ function App() {
           <Route path="/services/ui_ux" element={<UIUX />} />
           <Route path="/maintainance" element={<Maintenance />} />
         </Route>
-        
+
         {/* Routes without header/footer */}
         <Route element={<MinimalLayout />}>
-          <Route path="/sales/registration/payment/4vXcZpLmKjQ8aTyNfRbEoWg7HdUs29qT" element={<Payment />} />
-        </Route>
-        
+          <Route
+            path="/sales/registration/payment/:token"
+            element={<Payment />}
+          />        </Route>
+
         {/* Standalone route without layout */}
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,15 +1,21 @@
-import React, { useState, useRef } from 'react';
-import { Building2, CreditCard, Upload, Check, Calendar, DollarSign, FileText, QrCode, Trash2 } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Building2, CreditCard, Upload, Check, Calendar, DollarSign, FileText, QrCode, Trash2, XCircle } from 'lucide-react';
 import './payment.css';
-import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
+  const { token } = useParams();
+  const [paymentLink, setPaymentLink] = useState(null);
+  const [linkLoading, setLinkLoading] = useState(true);
+
   const [file, setFile] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [imageLoading, setImageLoading] = useState(false);
   const [dragActive, setDragActive] = useState(false);
   const [referenceId, setReferenceId] = useState('');
   const fileInputRef = useRef(null);
+  const [linkActive, setLinkActive] = useState(false);
+  const [loadingLink, setLoadingLink] = useState(true);
   const navigate = useNavigate();
 
   // Payment details (would normally come from props or context)
@@ -20,6 +26,115 @@ const Payment = () => {
     amount: 5000,
     dueDate: "2025-07-20"
   };
+
+  useEffect(() => {
+    const fetchPaymentLink = async () => {
+      try {
+        setLinkLoading(true);
+        const response = await fetch(
+          'https://zorvixebackend.onrender.com/api/admin/payment-link/4vXcZpLmKjQ8aTyNfRbEoWg7HdUs29qT'
+        );
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          setPaymentLink(data.paymentLink);
+        } else {
+          setPaymentLink(null);
+        }
+      } catch (error) {
+        console.error('Error fetching payment link:', error);
+        setPaymentLink(null);
+      } finally {
+        setLinkLoading(false);
+      }
+    };
+
+    fetchPaymentLink();
+  }, []);
+
+  const togglePaymentLink = async (active) => {
+    try {
+      const response = await fetch(
+        'https://zorvixebackend.onrender.com/api/admin/payment-link/4vXcZpLmKjQ8aTyNfRbEoWg7HdUs29qT',
+        {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ active })
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setPaymentLink(data.paymentLink);
+      } else {
+        alert('Failed to update link status');
+      }
+    } catch (error) {
+      console.error('Error toggling payment link:', error);
+      alert('Error updating link status');
+    }
+  };
+
+  useEffect(() => {
+    const checkLinkStatus = async () => {
+      try {
+        const response = await fetch(
+          `https://zorvixebackend.onrender.com/api/payment-link/${token}`
+        );
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          setLinkActive(data.active);
+        } else {
+          setLinkActive(false);
+        }
+      } catch (error) {
+        console.error('Error checking link status:', error);
+        setLinkActive(false);
+      } finally {
+        setLoadingLink(false);
+      }
+    };
+
+    checkLinkStatus();
+  }, [token]);
+
+
+  if (loadingLink) {
+    return (
+      <div className="payment-container links_status_loader">
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <p>Checking link status...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!linkActive) {
+    return (
+      <div className="container vh-100 d-flex justify-content-center align-items-center">
+        <div className="text-center border rounded shadow p-4" style={{ maxWidth: '450px', width: '100%' }}>
+          <div className="text-danger mb-3">
+            <XCircle size={48} />
+          </div>
+          <h2 className="mb-2">Payment Link Inactive</h2>
+          <p className="text-muted mb-4">
+            This payment link is currently inactive. Please contact support.
+          </p>
+          <button className="btn btn-outline-primary" onClick={() => navigate('/')}>
+            Go to Home
+          </button>
+        </div>
+      </div>
+
+    );
+  }
+
+
+
+
 
   const uploadImageToCloudinary = async (file) => {
     const formData = new FormData();
@@ -451,12 +566,16 @@ const Payment = () => {
             </div>
             <button
               className="submit-button"
-              onClick={handleSubmit}
+              onClick={() => {
+                handleSubmit();
+                togglePaymentLink(false);
+              }}
               disabled={!file || imageLoading}
             >
               <Check size={20} />
               {imageLoading ? 'Processing...' : 'Submit Registration'}
             </button>
+
           </div>
         </div>
       </div>

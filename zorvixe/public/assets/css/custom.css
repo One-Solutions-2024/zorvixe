@@ -683,3 +683,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+.links_status_loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
